@@ -1,0 +1,48 @@
+<div class="background">
+  <audio controls loop autoplay>
+    <source src="assets/sounds/tournament-sound.ogg" type="audio/mp3">
+    Seu navegador não suporta a reprodução de áudio.
+  </audio>
+
+  <!-- Tournament -->
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="text-center card">Torneio dos Reinos</h2>
+        <div class="teams">
+          <div class="team-card mb-4" *ngFor="let team of teams; let i = index">
+            <h4>Time {{ i + 1 }}</h4>
+            <p>{{ team.name }}</p>
+            <p class="mb-0">Vitórias: {{ team.wins }}</p>
+          </div>
+        </div>
+        <div class="text-center d-flex justify-content-evenly mt-2 mb-3">
+          <button (click)="addTeam()" [disabled]="teams.length >= 4" class="btn btn-primary">Adicionar Time</button>
+          <button (click)="playTournament()" [disabled]="teams.length < 4 || tournamentPlayed"
+            class="btn btn-success">Jogar Torneio</button>
+          <button (click)="resetTournament()" [disabled]="!tournamentPlayed" class="btn btn-danger">Reiniciar
+            Torneio</button>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <!-- Game Results -->
+        <div class="text-center card">
+          <h3>Resultados dos Jogos</h3>
+          <div *ngFor="let result of gameResults">
+            <p>{{ result.team1 }} X {{ result.team2 }} </p>
+            <p> <b>{{ result.winner }}</b></p>
+          </div>
+        </div>
+
+        <!-- Final -->
+        <div class="final text-center card" *ngIf="finalWinner">
+          <h4 class="mb-3">Resultado Final</h4>
+          <div><b>Vencedor do Torneio</b></div>
+          <div>{{ finalWinner.name }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

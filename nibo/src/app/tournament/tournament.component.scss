@@ -1,0 +1,33 @@
+  
+  .team-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 40%;
+  }
+  
+  .final {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+  }
+
+  .background {
+    background: url("/assets/imagens/tabuleiro.jpg") center center;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+} 
+
+  .teams {
+    display: flex!important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+  
+  
